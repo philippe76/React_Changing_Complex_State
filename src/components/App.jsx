@@ -10,29 +10,31 @@ function App() {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setContact((prevValue) => {
-      switch (name) {
-        case "firstName":
-          return {
-            firstName: value,
-            lastName: prevValue.lastName,
-            email: prevValue.email
-          };
-        case "lastName":
-          return {
-            firstName: prevValue.firstName,
-            lastName: value,
-            email: prevValue.email
-          };
-        case "email":
-          return {
-            firstName: prevValue.firstName,
-            lastName: prevValue.lastName,
-            email: value
-          };
-        default:
-      }
-    });
+    setContact((prevValue) => ({ ...prevValue, [name]: value }));
+
+    // setContact((prevValue) => {
+    //   switch (name) {
+    //     case "firstName":
+    //       return {
+    //         firstName: value,
+    //         lastName: prevValue.lastName,
+    //         email: prevValue.email
+    //       };
+    //     case "lastName":
+    //       return {
+    //         firstName: prevValue.firstName,
+    //         lastName: value,
+    //         email: prevValue.email
+    //       };
+    //     case "email":
+    //       return {
+    //         firstName: prevValue.firstName,
+    //         lastName: prevValue.lastName,
+    //         email: value
+    //       };
+    //     default:
+    //   }
+    // });
   };
 
   return (
